@@ -72,7 +72,7 @@ def clear():#очистка вопросов
     qe5.clear()#очистка вопросов
 
 def start():#кнопка запуск
-    randq=choise(qlist)#рандом вопросов в списке
+    randq=choice(qlist)#рандом вопросов в списке
     radio_l[0].setText(randq.answer)#правильний вопрос
     radio_l[1].setText(randq.wrong_answer1)#неправильный вопрос
     radio_l[2].setText(randq.wrong_answer2)#неправильный вопрос
@@ -90,8 +90,11 @@ qb1.clicked.connect(creatq)#создание вопросов
 qb2.clicked.connect(clear)#очистка вопросов
 qb3.clicked.connect(start)#запуск
 
+timer.timeout.connect(wake)#таймер зарабатывает
+otdih.clicked.connect(sleep)#таймер останавливается
+
 window.show()#окно показывается
 window2.show()#окно показывается
 window.hide()#окно закрыть
 app.exec_()#приложение закрыть
-app.exec_()#приложение закрыть
+#app.exec_()#приложение закрыть
