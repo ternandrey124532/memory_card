@@ -4,7 +4,8 @@ from PyQt5.QtWidgets import*#За окно
 from PyQt5.QtCore import QTimer#timer
 from memo_card1 import*#модуль 
 from question_layout import*#подклчение линий из модуля
-#from random import*
+from statictika import*
+
 time_unit=60000#1 minyta
 timer=QTimer()#создание таймера
 def sleep():#функция для остановки таймера
@@ -22,25 +23,14 @@ w,h=600,500#ширина и высота окна
 #tre=True
 window=QWidget()#создание виджета
 window.resize(w,h)#установка своих размеров окна
-window.setWindowTitle("Memory Card")#установка названия на окно
+window.setWindowTitle("Memory Card") #установка названия на окно
 window.move(100,100)
 
         
-frm_question='Яблуко'#вопрос
-frm_right='apple'#правильный ответ
-frm_wrong1='application'#неправильный ответ
-frm_wrong2='building'#неправильный ответ
-frm_wrong3='caterpillar'#неправильный ответ
+
 
 radio_l=[radio1,radio2,radio3,radio4]#создание списка с радиобаттонами
-#shuffle(radio_l)
-
-radio_l[0].setText(frm_right)#ставим правильный ответ на радиоаттон
-radio_l[1].setText(frm_wrong3)#ставим не правильный ответ
-radio_l[2].setText(frm_wrong1)#ставим не правильный ответ
-radio_l[3].setText(frm_wrong2)#ставим не правильный ответ
-vidpovid.setText(frm_right)#ставим правильный ответ
-vopros.setText(frm_question)#ставим вопрос
+shuffle(radio_l)
 
 def chek_result():#функция для проверки результата
     correct=radio_l[0].isChecked()#проверка правильного ответа
@@ -55,6 +45,11 @@ def chek_result():#функция для проверки результата
 def click_OK():#функция для нажатия
     if vidp.text() == 'Відповісти':#считывание текста
         chek_result()#проверка результата
+    elif vidp.text() == 'Наступне питання':
+        start()
+        showq()
+        
+    
 qlist=[]#создание списка
 def creatq():#создание вопроса
     a=qe1.text()#считывание текста 
@@ -79,6 +74,10 @@ def start():#кнопка запуск
     radio_l[3].setText(randq.wrong_answer3)#неправильный вопрос
     vidpovid.setText(randq.answer)#правильный ответ
     vopros.setText(randq.question)#вопрос
+
+    window2.hide()
+    window.show()
+    
     
 
 

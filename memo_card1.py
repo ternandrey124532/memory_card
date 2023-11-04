@@ -2,7 +2,7 @@ from PyQt5.QtCore import Qt#функциональный модуль
 from PyQt5.QtWidgets import*#За окно
 app=QApplication([])#создание приложения
 vidp=QPushButton('Відповісти')#кнопка отвеат
-men=QPushButton('Меню')#кнопка меню
+men=QPushButton('Статистика')#кнопка меню
 otdih=QPushButton('Відпочити')#кнопка отдыха
 boxm=QSpinBox()#таймер окошко
 boxm.setValue(30)#начальное колличество секунд
@@ -44,6 +44,7 @@ g4=QHBoxLayout()#создание горизонтальной линии
 
 g1.addWidget(men)#добавление виджета меню на 1 горизонтальную линию
 g1.addWidget(otdih)#добавление виджет отдых на 1 линию
+g1.addWidget(boxm)
 
 g2.addWidget(vopros)#добавления виджета вопроса
 
@@ -75,7 +76,7 @@ def showr():#нажал відповісти
     box2.show()#бокс2 показівается
     vidp.setText('Наступне питання')#установка текста следуюий вопрос
 def showq():#функция показ вопроса
-    vidp.setText('Відповисти')#ставим текст ответить
+    vidp.setText('Відповісти')#ставим текст ответить
     box1.show()#бокс1 показывается
     box2.hide()#бокс2 спрятался
     gp.setExclusive(False)#снятие огранчиений что б скинуть выбор
